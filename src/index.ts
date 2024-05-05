@@ -62,3 +62,5 @@ export const find = <A>(
     array: A[],
     callback: (item: A, index: number) => boolean
 ): Option<A> => wrap(array.find(callback))
+
+export const pop = <A>(array: A[]): Option<A> => wrap(array.pop())

@@ -55,6 +55,23 @@ it('~find not finding an element', () => {
     expect(Option.isNone(result)).toBe(true)
 })
 
+it('~pop with a non empty array', () => {
+    const list = [1, 2, 3]
+
+    expect(Option.pop(list)).toStrictEqual(Option.some(3))
+    expect(Option.pop(list)).toStrictEqual(Option.some(2))
+    expect(Option.pop(list)).toStrictEqual(Option.some(1))
+    expect(Option.pop(list)).toStrictEqual(Option.none)
+});
+
+it('~pop with a empty array', () => {
+    const list = []
+
+    const result = Option.pop(list)
+
+    expect(result).toStrictEqual(Option.none)
+});
+
 it('~unwrap with some value', () => {
     const option = Option.some(10)
 
